@@ -39,6 +39,6 @@ elif number ==2:
         print(f'Решение для x^3 + 4x-5  = {u} ')
     else: 
         u=pow(math.cos(x-3*pow(x,3)), 2)
-
+        print(f'Решение для cos^2(x-3x^3)  = {u} ')
 else:
     print("нет такого задания для варианта 1  ")

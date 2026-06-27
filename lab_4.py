@@ -4,7 +4,7 @@ if number == 1 :
     cost = float(input("Цена конфет за 1 кг : "))
     for i in range(2, 11):
         print(f"цена конфет за {i} кг : {cost*i} сомов")
-        i+=1
+        
 
 elif number ==2:
     numbers = int(input("введите число для старта: "))
