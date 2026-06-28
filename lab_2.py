@@ -1,33 +1,36 @@
 import math
-a = float(input("Введите значение a: "))
-b = float(input("Введите значение b: "))
-c = float(input("Введите значение c: "))
-x = float(input("Введите значение x: "))
-y = float(input("Введите значение y: "))
+print("Solution for T1")
+a, b, c = float(input("a: ")), float(input("b: ")), float(input("c: "))
+while True:
+    x, y = float(input("x: ")), float(input("y: "))
+    if y != 0 and (y * x + c) > 0:
+        break
+    print("y cant be zero, and (y*x + c) should be more than 0")
 
-# y cant be 0 in t1, the same solutions for a b and squared part for t2
-if y == 0 or a == 0 or b == 0 or (c**2 - b**2) < 0:
-    print("Недопустимые значения переменных!!!\n" 
-    "Деление на ноль или корень из отрицательного числа)."
-    )
-else:
-    lg_value = y * x + c
-    if lg_value <= 0:
-        print("Выражение под lg(yx+c) должно быть больше 0.")
-    else:
-        t1 = (a * x) / y + (b /(y**2)) * math.log10(lg_value)
-        print("Результат t1: {0:.2f}".format(t1))
+t1 = round((a * x / y) + (b / y**2) * math.log10(y * x + c), 2)
+print(f'The result of T1 is {t1}\n')
 
 
-    num = math.sqrt(c**2 - b**2) * math.tan(a * x + 2)
-    den = math.sqrt(c**2 - b**2) * math.tan(a * x - 2)
 
-    if den == 0:
-        print("Деление на ноль в аргументе логарифма.")
-    elif (num / den) <= 0:
-        print(
-            "Аргумент натурального логарифма должен быть положительным."
-        )
-    else:
-        t2 = (1 / (2 * a * b)) * math.log(num / den)
-        print("Результат t2: {0:.2f}".format(t2))
+print("Solution for T2")
+while True:
+    if a == 0 or b == 0:
+        print(f' a is {a}, b is {b}. a and be cant be 0')
+        a, b = float(input("new value for a : ")), float(input("new value for b: "))
+        continue
+        
+    if c**2 - b**2 < 0:
+        print("error!!! (c^2 - b^2)< 0.")
+        c = float(input("new value for c: "))
+        continue
+    k = math.sqrt(c**2 - b**2) * math.tan(a * x)
+    chisl = k + 2
+    znam = k - 2
+    if znam == 0 or (chisl / znam) <= 0:
+        print("log cant be 0 or less than 0")
+        x = float(input("type another value for x: "))
+        continue
+    break
+
+t2 = round((1 / (2 * a * b)) * math.log(chisl / znam), 2)
+print(f'The result of T2 is {t2}')
