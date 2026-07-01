@@ -1,34 +1,31 @@
+import numpy as np
 from random import *
 
 number = int(input("Type the num of the ex: "))
 
 if number == 1:
+
     n = int(input("Size of the array: "))
-    ar = []
+    ar = np.array([int(input(f"type {i + 1} element: ")) for i in range(n)])
 
-    for i in range(n):
-        num= int(input(f'type {i+1} element: '))
-        ar.append(num)
+    print(f"max number of the array is {ar.max()}")
+    print(f"original : {ar}  reversed : {ar[::-1]}")
 
-    print(f'max number of the array is {max(ar)}')
-    print(f'original : {ar}  reversed : {ar[::-1]}')
 
 elif number == 2:
+
     n = int(input("Size of the array: "))
-    array = [round(uniform(0, 1), 1) for i in range(n)]
-    print("Сгенерированный массив:", array)
-    av = round(sum(array)/len(array),1)
+    array = np.array([round(uniform(0, 1), 1) for i in range(n)])
+    print("Generated array:", array)
+    av = round(float(array.mean()), 1)
+    array = np.where(array == 0.0, av, array)
 
-    for i in range(n):
-        if array[i]== 0.0:
-            i = av
-
-    print(f'average is {av}')
-    print(f'new array: {array}')
+    print(f"average is {av}")
+    print(f"new array: {array}")
 
 elif number == 3:
-    stroka = input("type a text: ")
-    words = stroka.split()
+    text = input("type a text: ")
+    words = np.array(text.split())
 
     if len(words) > 0:
         print(f'first word is "{words[0]}"')
@@ -36,10 +33,10 @@ elif number == 3:
         print("there is no text or there were just enters")
 
 elif number == 4:
-    lst = [9, -3, 5, 0, -3]
-    sum_abs = sum(abs(i) for i in lst)
+    lst = np.array([9, -3, 5, 0, -3])
+    sum_abs = np.sum(np.abs(lst))
 
-    print("previous list:", lst)
-    print("sum of the abs values of the list:", sum_abs)
+    print(f"previous list: {lst}")
+    print(f"sum of the abs values of the list: {sum_abs}")
 else:
     print("there is no other ex for this var")
