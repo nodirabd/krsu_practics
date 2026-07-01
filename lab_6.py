@@ -1,6 +1,5 @@
 import numpy as np
-from random import *
-
+from random import uniform
 number = int(input("Type the num of the ex: "))
 
 if number == 1:
