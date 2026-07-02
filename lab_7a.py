@@ -1,10 +1,10 @@
 number = int(input("Type the ex: "))
 if number == 1:
     info = (
-        "Abdurakhmanova Nodirabegim Bakhadirovna",  
-        "Bishkek",  
-        18,  
-        161,  
+        "Abdurakhmanova Nodirabegim Bakhadirovna",
+        "Bishkek",
+        18,
+        161,
     )
     print(f'Third element of the tuple:  {info[2]}')
     print(f'Second element of the tuple:  {info[1]}')
@@ -28,7 +28,6 @@ elif number == 2:
     else:
         print("Country not found in the dictionary.")
 
-
     capital_dict = input("Type the name of the city to find its country: ")
     found_country = None
 
@@ -41,22 +40,20 @@ elif number == 2:
     else:
         print("City not found in the list of capitals.")
 elif number == 3:
-    info_str = "Full Name: Abdurakhmanova Nodirabegim Bakhadirovna. Hobbies: Programming in Python and web development."
+    info_str = "Full Name: Abdurakhmanova Nodirabegim Bakhadirovna. Hobbies: walking and reading. Age: 18. Height: 161 cm."
 
     f = open("text_1.txt", "w", encoding="utf-8")
     f.write(info_str)
     f.close()
 
     f = open("text_1.txt", encoding="utf-8")
-    content = f.read() 
+    content = f.read()
     f.close()
 
     print("Content of the file text_1.txt:")
     print(content)
 elif number == 4:
-    phone_book = {}
-    FILE_NAME = "phone_book_db.txt"
-
+    
 
     def fill_dict():
         n = int(input("Enter the number of contacts to input: "))
@@ -66,27 +63,20 @@ elif number == 4:
             phone_book[key] = value
         print("Data successfully added to the dictionary.")
 
-
     def save_to_file():
         f = open(FILE_NAME, "w", encoding="utf-8")
         for key, value in phone_book.items():
-            # Записываем каждую пару в формате ключ:значение на новой строке
             f.write(f"{key}:{value}\n")
         f.close()
         print("Data successfully saved to file.")
 
-
-    # 3. Считывания данных из внешнего файла
     def load_from_file():
-        # Очищаем текущий словарь перед загрузкой
         phone_book.clear()
-        # Читаем строки из файла
         f = open(FILE_NAME, "r", encoding="utf-8")
         lines = f.readlines()
         f.close()
 
         for line in lines:
-            # Убираем символ переноса строки и разделяем по двоеточию
             line = line.strip()
             if line:
                 parts = line.split(":")
@@ -95,25 +85,20 @@ elif number == 4:
                 phone_book[key] = value
         print("Data successfully loaded from file.")
 
-
-    # 4. Добавление/изменение информации
     def add_or_update_info():
         key = input("Enter the name of the contact: ")
         value = input("Enter the phone number: ")
         phone_book[key] = value
         print(f"Contact {key} saved.")
-    # 5. Удаление информации
+
     def delete_info():
         key = input("Enter the name of the contact to delete: ")
-        # Испольуем dict.pop()
         removed_value = phone_book.pop(key, None)
         if removed_value is not None:
             print(f"Contact {key} successfully deleted.")
         else:
             print("Contact not found.")
 
-
-    # 6. Поиск информации по ключу
     def search_info():
         key = input("Enter the name to search for: ")
         value = phone_book.get(key)
@@ -122,16 +107,11 @@ elif number == 4:
         else:
             print("Contact not found.")
 
-
-    # 7. Сортировка информации по ключу
     def sort_and_show():
-        # Для сортировки элементов словаря по ключам используют функцию sorted()
         sorted_keys = sorted(phone_book.keys())
         for key in sorted_keys:
             print(f"{key}: {phone_book[key]}")
 
-
-    # Основное меню программы
     def menu():
         while True:
             print("1. Fill dictionary from keyboard")
@@ -165,8 +145,9 @@ elif number == 4:
             else:
                 print("Invalid input, please try again.")
 
-
     menu()
+    phone_book = {}
+    FILE_NAME = "phone_book_db.txt"
 elif number == 5:
     source_list = [1, 2, 3, 2, 4, 3, 5]
     unique_set = set(source_list)

@@ -13,7 +13,6 @@ class Commodity:
         print(f"Destructor called: Commodity '{self.name}' has been destroyed.")
 
     def print_info(self):
-        print("--- Commodity Information ---")
         print(f"ID: {self.id}")
         print(f"Product Code: {self.productCode}")
         print(f"Name: {self.name}")
@@ -22,8 +21,6 @@ class Commodity:
         print(f"Description: {self.description}")
         print(f"Category (Class Attribute): {self.category}")
 
-
-# 1. Instantiate the class
 item = Commodity(1, "PROD-101", "Wireless Mouse", 15.0, 25.0, "Ergonomic 2.4GHz mouse")
 
 item.warranty_months = 12
